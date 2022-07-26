@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<UserManagement.Models.User>
 
 @{
-<tital>  ViewData["Title"] = "Index";</tital>
+  ViewData["Title"] = "Users";
 }
 
-<h1>Index</h1>
+<h1>Users</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -41,11 +41,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.EmailAddress)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+            <td style="color:red;">
+                    <a asp-action="Edit" asp-route-id="@item.Id" >Edit</a> |
+                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+             </td>
         </tr>
 }
     </tbody>
