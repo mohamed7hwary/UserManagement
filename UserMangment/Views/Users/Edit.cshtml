@@ -12,15 +12,15 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
+             <input type="hidden" data-val="true" data-val-required="The ID field is required." id="ID" name="ID" value="7" />
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
+                <input class="form-control" type="text" id="FirstName" name="FirstName"/>
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
+                <input class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -33,15 +33,17 @@
                 <input asp-for="BrithDate" class="form-control" />
                 <span asp-validation-for="BrithDate" class="text-danger"></span>
             </div>
+            <!-- Markup removed for brevity -->
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
+             <input name="__RequestVerificationToken" type="hidden" />
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit">Back to List</a>
 </div>
 
 @section Scripts {

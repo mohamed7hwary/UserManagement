@@ -15,9 +15,22 @@ namespace UserManagement.Controllers
             _context = context;
         }
         // GET: Management
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Id)
         {
+            IQueryable<string> genreQuery = from u in _context.User
+                                            orderby u.FirstName
+                                            select u.FirstName;
+            var Users = from u in _context.User
+                        select u;
+
+            if (!String.IsNullOrEmpty(Id))
+            {
+                Users = Users.Where(s => s.FirstName!.Contains(Id));
+            }
+
+
             return View(await _context.User.ToListAsync());
+
         }
 
         // GET: Managements/Details/5
@@ -68,18 +81,18 @@ namespace UserManagement.Controllers
                 return NotFound();
             }
 
-            var management = await _context.User.FindAsync(id);
-            if (management == null)
+            var Users = await _context.User.FindAsync(id);
+            if (Users == null)
             {
                 return NotFound();
             }
-            return View(management);
+            return View(Users);
         }
 
         // POST: Managements/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,EmailAddress,BrithDate")] User management)
         {

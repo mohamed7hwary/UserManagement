@@ -1,9 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using UserManagement.Data;
-using System;
-using System.Linq;
-using UserManagement.Models;
 
 namespace UserManagement.Models
 {
