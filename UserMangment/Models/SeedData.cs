@@ -24,6 +24,7 @@ namespace UserManagement.Models
                     LastName = "Ahmed ",
                     BrithDate = new DateTime(2000, 4, 1),
                     EmailAddress = "mohamed.cs@gmail.com"
+
                 },
 
                 new User

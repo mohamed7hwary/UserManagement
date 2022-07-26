@@ -11,8 +11,10 @@ namespace UserManagement.Models
     {
         public int Id { get; set; }
 
+        
         [Required]
  public string FirstName { get; set; }
+
 
         [Required]
    public string LastName { get; set; }
@@ -25,6 +27,7 @@ namespace UserManagement.Models
         [DataType(DataType.Date)]
         public DateTime BrithDate { get; set; }
 
+        
 
         public class MovieGenreViewModel
         {
